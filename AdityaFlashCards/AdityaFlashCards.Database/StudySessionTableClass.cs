@@ -17,7 +17,7 @@ internal class StudySessionTableClass
     {
         using SqlConnection conn = new SqlConnection(_connectionString);
         conn.Open();
-        conn.Execute(@"CREATE TABLE StudySessions (StudySessionId INT PRIMARY KEY IDENTITY(3000,1), Fk_StackID INT NOT NULL FOREIGN KEY REFERENCES Stacks(StackID) ON DELETE CASCADE, SessionDate DATE NOT NULL, SessionScore INT NOT NULL, TotalScore INT NOT NULL)");
+        conn.Execute(@"CREATE TABLE StudySessions (StudySessionId INT PRIMARY KEY IDENTITY(3000,1), Fk_StackID INT NOT NULL FOREIGN KEY REFERENCES Stacks(StackID) ON DELETE CASCADE, SessionDate VARCHAR(20) NOT NULL, SessionScore INT NOT NULL, TotalScore INT NOT NULL)");
     }
 
     internal void InsertStudySession(int stackID, string date, int score, int totalScore)

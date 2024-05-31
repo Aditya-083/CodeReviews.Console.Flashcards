@@ -8,8 +8,8 @@ namespace AdityaFlashCards;
 
 internal class Application
 {
-    public DatabaseManager Db { get; set; }
-    public Application() {
+     internal DatabaseManager Db { get; set; }
+     internal Application() {
         IConfiguration configurationBuilder = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         Db = new DatabaseManager(configurationBuilder);
     }
@@ -172,7 +172,7 @@ internal class Application
                             Console.WriteLine("Sorry! It was the wrong answer.. Press any key to continue...");
                         }
                     }
-                    string date = DateTime.Today.ToString("dd-MM-yyyy");
+                    string date = DateTime.Today.ToString("yyyy-MM-dd");
                     Db.InsertStudySession(stackName, date, score, Flashcards.Count);
                     Console.WriteLine("Session Completed. Your score was {0}/{1}. Press any key to continue...", score, Flashcards.Count);
                     Console.ReadLine();
